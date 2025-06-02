@@ -1,0 +1,50 @@
+{
+    /*
+    "service-name": {
+        "impact": "low|medium|high",
+        "twh": "40", // Total energy consumption in TWh
+        "co2": "23", // CO2 emissions in million tonnes
+        "factor1-title": "Lorem",
+        "factor1-desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "factor2-title": "Ipsum",
+        "factor2-desc": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    }
+    */
+    
+    "whatsapp": {
+        "impact": "low",
+        "twh": "40",
+        "co2": "23",
+        "factor1-title": "Lorem",
+        "factor1-desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "factor2-title": "Ipsum",
+        "factor2-desc": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    "youtube": {
+        "impact": "medium",
+        "twh": "40",
+        "co2": "23",
+        "factor1-title": "Lorem",
+        "factor1-desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "factor2-title": "Ipsum",
+        "factor2-desc": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    "bitcoin": {
+        "impact": "high",
+        "twh": "40",
+        "co2": "23",
+        "factor1-title": "Lorem",
+        "factor1-desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "factor2-title": "Ipsum",
+        "factor2-desc": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    "claude": {
+        "impact": "medium",
+        "twh": "40",
+        "co2": "23",
+        "factor1-title": "Lorem",
+        "factor1-desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "factor2-title": "Ipsum",
+        "factor2-desc": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    }
+}
