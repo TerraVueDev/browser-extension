@@ -1,10 +1,9 @@
 <div align="center">
   <img src="/assets/logo.png" alt="EcoMetrics Logo" width="300">
 </div>
+<p align="center">EcoMetrics is an environmental metrics visualizer of web applications and services.</p>
 
 ---------------------------------------------------------------------------------------------------------------------------
-
-Ecometrics is a project focused on visualizing ecological and environmental metrics of web applications and services.
 
 ## Features
 
