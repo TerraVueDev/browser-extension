@@ -1,0 +1,157 @@
+{
+  "cryptocurrency": {
+    "impact": "high",
+    "annual_estimate": {
+      "wh": "175.87T",
+      "co2": "98.10Mt"
+    },
+    "description": "High-volume transactions, real-time processing, and global infrastructure",
+    "source": "https://digiconomist.net/bitcoin-energy-consumption"
+  },
+  "video_streaming": {
+    "impact": "high",
+    "annual_estimate": {
+      "wh": "0.11T",
+      "co2": "843.1Mt"
+    },
+    "description": "High-bandwidth video content delivery requires significant data center resources and CDN infrastructure",
+    "source": "https://s22.q4cdn.com/959853165/files/doc_downloads/2024/6/2023-Netflix-Environmental-Social-Governance-Report.pdf"
+  },
+  "social_media": {
+    "impact": "high",
+    "annual_estimate": {
+      "wh": "1T",
+      "co2": "50Mt"
+    },
+    "description": "Complex algorithms, real-time feeds, and massive user bases require extensive computational resources",
+    "source": "https://www.theguardian.com/technology/2024/dec/12/tiktok-carbon-footprint"
+  },
+  "search_engine": {
+    "impact": "high",
+    "annual_estimate": {
+      "wh": "25.9T",
+      "co2": "0.9Mt"
+    },
+    "description": "Massive index maintenance, real-time query processing, and global infrastructure",
+    "source": "https://salience.co.uk/insight/magazine/the-carbon-footprint-of-search/"
+  },
+  "cloud_storage": {
+    "impact": "medium",
+    "annual_estimate": {
+      "wh": "200T",
+      "co2": "0.74Gt"
+    },
+    "description": "Data redundancy, synchronization, and global accessibility require distributed storage systems",
+    "source": "https://thereader.mitpress.mit.edu/the-staggering-ecological-impacts-of-computation-and-the-cloud/"
+  },
+  "messaging": {
+    "impact": "low",
+    "annual_estimate": {
+      "wh": "100M",
+      "co2": "18.25Mt"
+    },
+    "description": "Relatively efficient text-based communication with minimal computational overhead",
+    "source": "https://thinkdigitalgreen.de/100-milliarden-messages-18-millionen-baeume/"
+  },
+  "e_commerce": {
+    "impact": "medium",
+    "annual_estimate": {
+      "wh": "0.464T",
+      "co2": "2.1Mt"
+    },
+    "description": "Product catalogs, recommendation engines, and transaction processing require moderate resources",
+    "source": "https://static.ebayinc.com/static/assets/Uploads/Documents/eBay-Impact-2024-Report.pdf"
+  },
+  "ai_assistant": {
+    "impact": "medium",
+    "annual_estimate": {
+      "wh": "1287M",
+      "co2": "0,5Mt"
+    },
+    "description": "AI model inference requires significant computational power but lower total usage than mass platforms",
+    "source": "https://carboncredits.com/how-big-is-the-co2-footprint-of-ai-models-chatgpts-emissions/"
+  },
+  "news_media": {
+    "impact": "low",
+    "annual_estimate": {
+      "wh": "0.15T",
+      "co2": "408Mt"
+    },
+    "description": "Content delivery with moderate multimedia requirements and CDN usage",
+    "source": "https://www.bbc.co.uk/aboutthebbc/documents/ara-2023-24.pdf"
+  },
+  "gaming": {
+    "impact": "high",
+    "annual_estimate": {
+      "wh": "0.08T",
+      "co2": "183Mt"
+    },
+    "description": "Real-time multiplayer processing, graphics rendering, and low-latency requirements",
+    "source": "https://media.contentapi.ea.com/content/dam/eacom/common/ea-impact-report-23.pdf"
+  },
+  "productivity": {
+    "impact": "low",
+    "annual_estimate": {
+      "wh": "30.2T",
+      "co2": "15.5Mt"
+    },
+    "description": "Document processing and collaboration tools with moderate computational needs",
+    "source": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/msc/documents/presentations/CSR/2025-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf"
+  },
+
+  "music_streaming": {
+    "impact": "low",
+    "annual_estimate": {
+      "wh": "2T",
+      "co2": "0.195Mt"
+    },
+    "description": "Audio streaming requires less bandwidth than video but still significant due to scale",
+    "source": "https://www.lifeatspotify.com/reports/Spotify-Equity-Impact-Report-2024.pdf"
+  },
+
+  "educational": {
+    "impact": "low",
+    "annual_estimate": {
+      "wh": "963M",
+      "co2": "0.027Mt"
+    },
+    "description": "Content delivery and interactive learning tools with moderate resource requirements",
+    "source": "https://about.udemy.com/wp-content/uploads/2024/10/2024-Impact-Report-and-SASB-Disclosure-Table.pdf"
+  },
+  "travel": {
+    "impact": "medium",
+    "annual_estimate": {
+      "wh": "0.33T",
+      "co2": "13.07Mt"
+    },
+    "description": "Real-time pricing, availability checking, and booking systems require constant data processing",
+    "source": "https://www.responsibilityreports.com/HostedData/ResponsibilityReportArchive/u/NYSE_UBER_2022.pdf"
+  },
+  "navigation": {
+    "impact": "medium",
+    "annual_estimate": {
+      "wh": "4T",
+      "co2": "2Mt"
+    },
+    "description": "Real-time traffic data, route calculation, and location services require continuous processing",
+    "source": ""
+  },
+  "email": {
+    "impact": "low",
+    "annual_estimate": {
+      "wh": "2T",
+      "co2": "1Mt"
+    },
+    "description": "Email storage and delivery with minimal real-time processing requirements",
+    "source": ""
+  },
+  "developer_tools": {
+    "impact": "medium",
+    "annual_estimate": {
+      "wh": "6T",
+      "co2": "3Mt"
+    },
+    "description": "Code compilation, CI/CD pipelines, and development environments require substantial processing power",
+    "source": ""
+  }
+}
