@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="/assets/logo.svg" alt="Terravue Logo" width="300">
+  <img src="/assets/logo.png" alt="Terravue Logo" width="300">
 </div>
 <p align="center">Terravue is an environmental metrics visualizer of web applications and services.</p>
 
