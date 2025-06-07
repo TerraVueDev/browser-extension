@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/output.css">
     <script src="popup.js"></script>
-    <style>
-        .plus-icon {
-            content: "+";
-        }
-    </style>
 </head>
 <body class="bg-gray-50 font-sans">
     <div class="w-full min-w-80 max-w-sm mx-auto bg-white shadow-lg">
@@ -19,7 +14,7 @@
             <span class="inline-block bg-white/20 px-2 py-1 rounded-full text-xs font-medium capitalize" id="impact"></span>
         </div>
         
-        <div class="p-4">
+        <div class="p-4" id="environmental-factors">
             <!-- Environmental Factors Section -->
             <h2 class="text-base font-bold text-gray-900 mb-3">Key Environmental Factors</h2>
             
@@ -31,7 +26,7 @@
                     </div>
                     <h3 class="font-bold text-gray-900 text-sm leading-tight">Carbon Footprint</h3>
                 </div>
-                <p class="text-xs text-gray-600 ml-7 leading-relaxed" id="factor1-desc"></p>
+                <p class="text-xs text-gray-600 ml-7 leading-relaxed" id="factor1-desc">Generating...</p>
             </div>
             
             <!-- Factor 2 -->
@@ -42,7 +37,7 @@
                     </div>
                     <h3 class="font-bold text-gray-900 text-sm leading-tight">Power Consumption</h3>
                 </div>
-                <p class="text-xs text-gray-600 ml-7 leading-relaxed" id="factor2-desc"></p>
+                <p class="text-xs text-gray-600 ml-7 leading-relaxed" id="factor2-desc">Generating...</p>
             </div>
 
             <!-- Explanation -->
@@ -56,7 +51,7 @@
                         </svg>
                     </div>
                 </summary>
-                <p class="text-xs text-gray-600 ml-2 my-2 leading-relaxed" id="explanation-desc"></p>
+                <p class="text-xs text-gray-600 ml-2 my-2 leading-relaxed" id="explanation-desc">Generating...</p>
             </details>
         </div>
 
@@ -66,8 +61,9 @@
         </div>
 
         <!-- Footer -->
-        <div class="flex justify-center p-2 border-gray-900 opacity-50">
-            <p>EcoMetrics</p>
+        <div class="flex justify-center p-2 border-gray-900 opacity-50 gap-1">
+            <a href="#">Source</a>
+            <p>• Terravue</p>
         </div>
     </div>
 </body>
