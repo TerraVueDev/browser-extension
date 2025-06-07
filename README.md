@@ -1,7 +1,7 @@
 <div align="center">
-  <img src="/assets/logo.png" alt="EcoMetrics Logo" width="300">
+  <img src="/assets/logo.svg" alt="Terravue Logo" width="300">
 </div>
-<p align="center">EcoMetrics is an environmental metrics visualizer of web applications and services.</p>
+<p align="center">Terravue is an environmental metrics visualizer of web applications and services.</p>
 
 ---------------------------------------------------------------------------------------------------------------------------
 
@@ -9,12 +9,12 @@
 
 - Environmental metrics visualization
 
-## Getting Started
+## Development
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/ecometrics.git
-    cd ecometrics
+    git clone https://github.com/TerraVueDev/browser-extension.git
+    cd browser-extension
     ```
 2. Install dependencies:
     ```bash
@@ -25,7 +25,7 @@
     npx @tailwindcss/cli -i ./static/css/input.css -o ./static/css/output.css
     ```
 
-4. Enable developer mode on Chrome extension tab then click 'Load unpacked' and choose ecometrics directory.
+4. Enable developer mode on Chrome extension tab then click 'Load unpacked' and choose browser-extension directory.
 
 ## Contributing
 
