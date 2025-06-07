@@ -147,13 +147,15 @@ class EnvironmentalImpactAnalyzer {
       local: document.getElementById('local'),
       localText: document.getElementById('local-text'),
       impactHeader: document.getElementById('impact-header'),
-      impact: document.getElementById('impact')
+      impact: document.getElementById('impact'),
+      factors: document.getElementById('environmental-factors')
     };
 
     if (elements.local) elements.local.className = 'p-4 text-md font-bold text-gray-900';
     if (elements.localText) elements.localText.textContent = message;
     if (elements.impactHeader) elements.impactHeader.className = 'text-white p-4 text-center bg-gray-900';
     if (elements.impact) elements.impact.textContent = message;
+    if (elements.factors) elements.factors.className = 'hidden';
   }
 
   async generateFactorDescription(name, factorType, value) {
@@ -162,8 +164,8 @@ class EnvironmentalImpactAnalyzer {
     }
 
     const prompts = {
-      factor1: `Compare ${value}Mt CO2 to other day to day usage. Start your response with: ${name} annual CO2 emission is `,
-      factor2: `Compare ${value}ton watt hour to other day to day usage. Start your response with: ${name} annual power consumption is `
+      factor1: `Compare ${value} CO2 to other day to day usage. Start your response with: ${name} annual CO2 emission is `,
+      factor2: `Compare ${value} watt hour to other day to day usage. Start your response with: ${name} annual power consumption is `
     };
 
     const params = {
@@ -250,8 +252,8 @@ class EnvironmentalImpactAnalyzer {
     if (!titleElement || !descElement) return;
 
     try {
-      const description = await this.generateExplanation(name, explanation, value);
       titleElement.textContent = `Why ${name} has a ${value} impact?`;
+      const description = await this.generateExplanation(name, explanation, value);
       descElement.textContent = description;
     } catch (e) {
       console.error(`Failed to update ${explanation} description:`, e);
@@ -303,7 +305,7 @@ class EnvironmentalImpactAnalyzer {
 
       // Check if the domain is in the JSON
       if (!(domain in this.urlData)) {
-        this.updateNoDataDisplay('No data available');
+        this.updateNoDataDisplay('No data');
         return;
       }
 
