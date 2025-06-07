@@ -5,31 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/output.css">
     <script src="popup.js"></script>
+    <style>
+        .plus-icon {
+            content: "+";
+        }
+    </style>
 </head>
 <body class="bg-gray-50 font-sans">
-    <div class="w-full min-w-80 max-w-sm mx-auto bg-white shadow-lg overflow-hidden">
+    <div class="w-full min-w-80 max-w-sm mx-auto bg-white shadow-lg">
         <!-- Header -->
         <div class="bg-high-orange text-white p-4 text-center" id="impact-header">
             <h1 class="text-lg font-bold mb-2" id="domain"></h1>
             <span class="inline-block bg-white/20 px-2 py-1 rounded-full text-xs font-medium capitalize" id="impact"></span>
         </div>
         
-        <!-- Stats Grid -->
-        <div class="p-4" id="stats-container">
-            <div class="grid grid-cols-2 gap-3 mb-4">
-                <!-- TWH Stat -->
-                <div class="bg-gray-200 rounded-xl p-3 text-center min-w-0">
-                    <div class="text-2xl font-bold text-stat-purple mb-1" id="twh"></div>
-                    <div class="text-xs text-gray-600 font-medium leading-tight">TWH ANNUALLY</div>
-                </div>
-                
-                <!-- CO2 Stat -->
-                <div class="bg-gray-200 rounded-xl p-3 text-center min-w-0">
-                    <div class="text-2xl font-bold text-stat-blue mb-1" id="co2"></div>
-                    <div class="text-xs text-gray-600 font-medium leading-tight">TONS CO₂/YEAR</div>
-                </div>
-            </div>
-            
+        <div class="p-4">
             <!-- Environmental Factors Section -->
             <h2 class="text-base font-bold text-gray-900 mb-3">Key Environmental Factors</h2>
             
@@ -39,7 +29,7 @@
                     <div class="w-5 h-5 flex items-center justify-center flex-shrink-0 mr-2 mt-0.5">
                         <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96l0 64c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-64c0-35.3-28.7-64-64-64L64 32zm280 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm48 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zM64 288c-35.3 0-64 28.7-64 64l0 64c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-64c0-35.3-28.7-64-64-64L64 288zm280 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm56 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z"/></svg>
                     </div>
-                    <h3 class="font-bold text-gray-900 text-sm leading-tight" id="factor1-title"></h3>
+                    <h3 class="font-bold text-gray-900 text-sm leading-tight">Carbon Footprint</h3>
                 </div>
                 <p class="text-xs text-gray-600 ml-7 leading-relaxed" id="factor1-desc"></p>
             </div>
@@ -50,10 +40,24 @@
                     <div class="w-5 h-5 flex items-center justify-center flex-shrink-0 mr-2 mt-0.5">
                         <svg xmlns="http://www.w3.org/2000/svg" height="20" width="17.5" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M349.4 44.6c5.9-13.7 1.5-29.7-10.6-38.5s-28.6-8-39.9 1.8l-256 224c-10 8.8-13.6 22.9-8.9 35.3S50.7 288 64 288l111.5 0L98.6 467.4c-5.9 13.7-1.5 29.7 10.6 38.5s28.6 8 39.9-1.8l256-224c10-8.8 13.6-22.9 8.9-35.3s-16.6-20.7-30-20.7l-111.5 0L349.4 44.6z"/></svg>
                     </div>
-                    <h3 class="font-bold text-gray-900 text-sm leading-tight" id="factor2-title"></h3>
+                    <h3 class="font-bold text-gray-900 text-sm leading-tight">Power Consumption</h3>
                 </div>
                 <p class="text-xs text-gray-600 ml-7 leading-relaxed" id="factor2-desc"></p>
             </div>
+
+            <!-- Explanation -->
+            <details class="group mt-4">
+                <summary class="font-bold text-gray-900 text-sm leading-tight list-none px-2 cursor-pointer relative">
+                    <div class="flex items-center gap-2">
+                        <div id="explanation-title"></div>
+                        <svg class="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 transition-transform duration-300 group-open:rotate-90" 
+                        fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"/>
+                        </svg>
+                    </div>
+                </summary>
+                <p class="text-xs text-gray-600 ml-2 my-2 leading-relaxed" id="explanation-desc"></p>
+            </details>
         </div>
 
         <!-- Stats for Local Pages and Pages with no data -->
