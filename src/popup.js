@@ -4,6 +4,8 @@ class EnvironmentalImpactAnalyzer {
     this.cache = this.loadCache();
     this.urlData = null;
     this.categoryData = null;
+    this.apiDataCacheKey = 'apiData';
+    this.cacheExpiry = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
   }
 
   async getSession(params) {
@@ -11,7 +13,7 @@ class EnvironmentalImpactAnalyzer {
       try {
         this.session = await LanguageModel.create(params);
       } catch (e) {
-        console.error('Failed to crreate session:', e);
+        console.error('Failed to create session:', e);
         throw new Error('Language model not available.');
       }
     }
@@ -24,9 +26,9 @@ class EnvironmentalImpactAnalyzer {
       const session = await this.getSession(params)
       return await session.prompt(prompt);
     } catch (e) {
-      console.error('Prompt execution failed:', error);
+      console.error('Prompt execution failed:', e);
       this.resetSession();
-      throw error;
+      throw e;
     }
   }
 
@@ -55,22 +57,135 @@ class EnvironmentalImpactAnalyzer {
     }
   }
 
-  async loadData() {
+  loadApiDataFromCache() {
     try {
-      const [urlResponse, categoryResponse] = await Promise.all([
-        fetch(chrome.runtime.getURL('url.json')),
-        fetch(chrome.runtime.getURL('category.json'))
-      ]);
+      const cachedData = localStorage.getItem(this.apiDataCacheKey);
+      if (!cachedData) return null;
 
-      if (!urlResponse.ok || !categoryResponse.ok) {
-        throw new Error('Failed to fetch data');
+      const parsed = JSON.parse(cachedData);
+      const now = Date.now();
+
+      // Check if cache has expired
+      if (parsed.timestamp && (now - parsed.timestamp) > this.cacheExpiry) {
+        console.log('API data cache expired, will fetch fresh data');
+        localStorage.removeItem(this.apiDataCacheKey);
+        return null;
       }
 
-      this.urlData = await urlResponse.json();
-      this.categoryData = await categoryResponse.json();
+      return parsed.data;
     } catch (e) {
-      console.error('Failed to load data files:', e);
+      console.warn('Failed to load API data from cache:', e);
+      return null;
+    }
+  }
+
+  saveApiDataToCache(urlData, categoryData) {
+    try {
+      const cacheData = {
+        data: {
+          urlData,
+          categoryData
+        },
+        timestamp: Date.now()
+      };
+      localStorage.setItem(this.apiDataCacheKey, JSON.stringify(cacheData));
+      console.log('API data saved to cache');
+    } catch (e) {
+      console.warn('Failed to save API data to cache:', e);
+    }
+  }
+
+  async fetchApiData() {
+    const [urlResponse, categoryResponse] = await Promise.all([
+      fetch('https://raw.githubusercontent.com/TerraVueDev/assets/refs/heads/main/links.json')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Failed to fetch links data');
+          }
+          return response.json()
+        }),
+
+      fetch('https://raw.githubusercontent.com/TerraVueDev/assets/refs/heads/main/categories.json')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Failed to fetch categories data');
+          }
+          return response.json();
+        })
+    ]);
+
+    return { urlData: urlResponse, categoryData: categoryResponse };
+  }
+
+  async loadData() {
+    try {
+      // First try to load from cache
+      const cachedData = this.loadApiDataFromCache();
+      
+      if (cachedData) {
+        this.urlData = cachedData.urlData;
+        this.categoryData = cachedData.categoryData;
+        return;
+      }
+
+      // If no cached data or expired, fetch from API
+      const { urlData, categoryData } = await this.fetchApiData();
+      
+      this.urlData = urlData;
+      this.categoryData = categoryData;
+
+      // Save to cache for future use
+      this.saveApiDataToCache(urlData, categoryData);
+
+    } catch (e) {
+      console.error('Failed to load data:', e);
+      
+      // Try to load expired cache as fallback
+      try {
+        const fallbackData = localStorage.getItem(this.apiDataCacheKey);
+        if (fallbackData) {
+          const parsed = JSON.parse(fallbackData);
+          if (parsed.data) {
+            console.log('Using expired cache as fallback');
+            this.urlData = parsed.data.urlData;
+            this.categoryData = parsed.data.categoryData;
+            return;
+          }
+        }
+      } catch (fallbackError) {
+        console.warn('Fallback cache load failed:', fallbackError);
+      }
+      
       throw e;
+    }
+  }
+
+  // Method to manually refresh API data
+  async refreshApiData() {
+    try {
+      console.log('Manually refreshing API data');
+      const { urlData, categoryData } = await this.fetchApiData();
+      
+      this.urlData = urlData;
+      this.categoryData = categoryData;
+      
+      this.saveApiDataToCache(urlData, categoryData);
+      console.log('API data refreshed successfully');
+      
+      return true;
+    } catch (e) {
+      console.error('Failed to refresh API data:', e);
+      return false;
+    }
+  }
+
+  // Method to clear API data cache
+  clearApiDataCache() {
+    try {
+      localStorage.removeItem(this.apiDataCacheKey);
+      console.log('API data cache cleared');
+    } catch (e) {
+      console.warn('Failed to clear API data cache:', e);
     }
   }
 
@@ -279,7 +394,7 @@ class EnvironmentalImpactAnalyzer {
       // Initialize defaults
       try {
         const defaults = await LanguageModel.params();
-        console.log('Model default:', defaults);
+        // console.log('Model default:', defaults);
       } catch (e) {
         console.error('Failed to fetch model defaults:', e);
       }
@@ -345,3 +460,10 @@ analyzer.analyzeCurrentPage().catch(e => {
 window.addEventListener('beforeunload', () => {
   analyzer.destroy();
 });
+
+// Expose methods globally for debugging/manual control
+window.envAnalyzer = {
+  refreshData: () => analyzer.refreshApiData(),
+  clearCache: () => analyzer.clearApiDataCache(),
+  analyzer
+};
