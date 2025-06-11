@@ -6,7 +6,7 @@
     "48": "assets/icon-48.png",
     "128": "assets/icon-128.png"
   },
-  "description": "Base Level Extension",
+  "description": "Terravue is an environmental metrics visualizer of web applications and services.",
   "version": "1.0",
   "permissions": [
     "activeTab",
