@@ -377,6 +377,14 @@ class EnvironmentalImpactAnalyzer {
     }
   }
 
+  async updateLinks(domain) {
+    const sourceLink = document.getElementById('source-link');
+
+    if (!sourceLink) return;
+
+    sourceLink.href = `https://terravue.app/details.html?website=${domain}`;
+  }
+
   // Special URL handling
   isSpecialUrl(url) {
     return url.startsWith('chrome:') || url.startsWith('file:');
@@ -439,7 +447,8 @@ class EnvironmentalImpactAnalyzer {
       await Promise.all([
         this.updateFactorDisplay(name, 'factor1', categoryInfo.co2),
         this.updateFactorDisplay(name, 'factor2', categoryInfo.wh),
-        this.updateExplanationDisplay(name, 'explanation', categoryInfo.impact)
+        this.updateExplanationDisplay(name, 'explanation', categoryInfo.impact),
+        this.updateLinks(domain)
       ]);
     } catch (e) {
       console.error('Failed to analyze current page:', e);
