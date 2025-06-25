@@ -9,9 +9,13 @@
   "description": "Terravue is an environmental metrics visualizer of web applications and services.",
   "version": "1.0",
   "permissions": [
-    "activeTab",
-    "scripting"
+    "tabs",
+    "scripting",
+    "storage"
   ],
+  "background": {
+    "service_worker": "src/background.js"
+  },
   "manifest_version": 3,
   "action": {
     "default_popup": "src/popup.html",

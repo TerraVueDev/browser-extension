@@ -1,71 +1,161 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/css/output.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/output.css" />
     <script src="popup.js"></script>
-</head>
-<body class="bg-gray-50 font-sans">
-    <div class="w-full min-w-80 max-w-sm mx-auto bg-white shadow-lg">
-        <!-- Header -->
-        <div class="bg-high-orange text-white p-4 text-center" id="impact-header">
-            <h1 class="text-lg font-bold mb-2" id="domain"></h1>
-            <span class="inline-block bg-white/20 px-2 py-1 rounded-full text-xs font-medium capitalize" id="impact"></span>
-        </div>
-        
-        <div class="p-4" id="environmental-factors">
-            <!-- Environmental Factors Section -->
-            <h2 class="text-base font-bold text-gray-900 mb-3">Key Environmental Factors</h2>
-            
-            <!-- Factor 1 -->
-            <div class="mb-4">
-                <div class="flex items-start mb-2">
-                    <div class="w-5 h-5 flex items-center justify-center flex-shrink-0 mr-2 mt-0.5">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M64 32C46.3 32 32 46.3 32 64l0 240 0 48 0 80c0 26.5 21.5 48 48 48l416 0c26.5 0 48-21.5 48-48l0-128 0-151.8c0-18.2-19.4-29.7-35.4-21.1L352 215.4l0-63.2c0-18.2-19.4-29.7-35.4-21.1L160 215.4 160 64c0-17.7-14.3-32-32-32L64 32z"/></svg>
-                    </div>
-                    <h3 class="font-bold text-gray-900 text-sm leading-tight">Carbon Footprint</h3>
-                </div>
-                <p class="text-xs text-gray-600 ml-7 leading-relaxed" id="factor1-desc">Generating...</p>
+  </head>
+  <body class="bg-neutral-100 font-sans">
+    <div class="mx-auto w-full max-w-sm min-w-80 bg-white shadow-lg">
+      <!-- Header -->
+      <div class="bg-high-orange p-4 text-center text-white" id="impact-header">
+        <h1 class="mb-2 text-lg font-bold" id="domain"></h1>
+        <span
+          class="inline-block rounded-full bg-white/20 px-2 py-1 text-xs font-medium capitalize"
+          id="impact"
+        ></span>
+      </div>
+
+      <div class="p-4" id="environmental-factors">
+        <!-- Environmental Factors Section -->
+        <h2 class="mb-3 text-base font-bold text-gray-900">
+          Key Environmental Factors
+        </h2>
+
+        <!-- Factor 1 -->
+        <div class="mb-4">
+          <div class="mb-2 flex items-start">
+            <div
+              class="mt-0.5 mr-2 flex h-5 w-5 flex-shrink-0 items-center justify-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="20"
+                width="22.5"
+                viewBox="0 0 576 512"
+              >
+                <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                <path
+                  d="M64 32C46.3 32 32 46.3 32 64l0 240 0 48 0 80c0 26.5 21.5 48 48 48l416 0c26.5 0 48-21.5 48-48l0-128 0-151.8c0-18.2-19.4-29.7-35.4-21.1L352 215.4l0-63.2c0-18.2-19.4-29.7-35.4-21.1L160 215.4 160 64c0-17.7-14.3-32-32-32L64 32z"
+                />
+              </svg>
             </div>
-            
-            <!-- Factor 2 -->
-            <div>
-                <div class="flex items-start mb-2">
-                    <div class="w-5 h-5 flex items-center justify-center flex-shrink-0 mr-2 mt-0.5">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="17.5" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M349.4 44.6c5.9-13.7 1.5-29.7-10.6-38.5s-28.6-8-39.9 1.8l-256 224c-10 8.8-13.6 22.9-8.9 35.3S50.7 288 64 288l111.5 0L98.6 467.4c-5.9 13.7-1.5 29.7 10.6 38.5s28.6 8 39.9-1.8l256-224c10-8.8 13.6-22.9 8.9-35.3s-16.6-20.7-30-20.7l-111.5 0L349.4 44.6z"/></svg>
-                    </div>
-                    <h3 class="font-bold text-gray-900 text-sm leading-tight">Power Consumption</h3>
-                </div>
-                <p class="text-xs text-gray-600 ml-7 leading-relaxed" id="factor2-desc">Generating...</p>
+            <h3 class="text-sm leading-tight font-bold text-gray-900">
+              Carbon Footprint
+            </h3>
+          </div>
+          <p
+            class="ml-7 text-xs leading-relaxed text-gray-600"
+            id="factor1-desc"
+          >
+            Generating...
+          </p>
+        </div>
+
+        <!-- Factor 2 -->
+        <div>
+          <div class="mb-2 flex items-start">
+            <div
+              class="mt-0.5 mr-2 flex h-5 w-5 flex-shrink-0 items-center justify-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="20"
+                width="17.5"
+                viewBox="0 0 448 512"
+              >
+                <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                <path
+                  d="M349.4 44.6c5.9-13.7 1.5-29.7-10.6-38.5s-28.6-8-39.9 1.8l-256 224c-10 8.8-13.6 22.9-8.9 35.3S50.7 288 64 288l111.5 0L98.6 467.4c-5.9 13.7-1.5 29.7 10.6 38.5s28.6 8 39.9-1.8l256-224c10-8.8 13.6-22.9 8.9-35.3s-16.6-20.7-30-20.7l-111.5 0L349.4 44.6z"
+                />
+              </svg>
             </div>
-
-            <!-- Explanation -->
-            <details class="group mt-4">
-                <summary class="font-bold text-gray-900 text-sm leading-tight list-none px-2 cursor-pointer relative">
-                    <div class="flex items-center gap-2">
-                        <div id="explanation-title"></div>
-                        <svg class="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 transition-transform duration-300 group-open:rotate-90" 
-                        fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"/>
-                        </svg>
-                    </div>
-                </summary>
-                <p class="text-xs text-gray-600 ml-2 my-2 leading-relaxed" id="explanation-desc">Generating...</p>
-            </details>
+            <h3 class="text-sm leading-tight font-bold text-gray-900">
+              Power Consumption
+            </h3>
+          </div>
+          <p
+            class="ml-7 text-xs leading-relaxed text-gray-600"
+            id="factor2-desc"
+          >
+            Generating...
+          </p>
         </div>
 
-        <!-- Stats for Local Pages and Pages with no data -->
-        <div id="local" class="hidden">
-            <p id="local-text">Local pages don't consume energy.</p>
-        </div>
+        <!-- Explanation -->
+        <details class="group mt-4">
+          <summary
+            class="relative cursor-pointer list-none px-2 text-sm leading-tight font-bold text-gray-900"
+          >
+            <div class="flex items-center gap-2">
+              <div id="explanation-title"></div>
+              <svg
+                class="absolute top-1/2 right-2 h-4 w-4 -translate-y-1/2 transition-transform duration-300 group-open:rotate-90"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                />
+              </svg>
+            </div>
+          </summary>
+          <p
+            class="my-2 ml-2 text-xs leading-relaxed text-gray-600"
+            id="explanation-desc"
+          >
+            Generating...
+          </p>
+        </details>
+      </div>
 
-        <!-- Footer -->
-        <div class="flex justify-center p-2 border-gray-900 text-gray-400 gap-1">
-            <a href="" class="hover:text-blue-400" id="source-link">Source</a>
-            <p> • </p>
-            <a href="https://terravue.app" class="hover:text-blue-400" id="terravue-link">Terravue</p>
+      <!-- Stats for Local Pages and Pages with no data -->
+      <div id="local" class="hidden">
+        <p id="local-text">Local pages don't consume energy.</p>
+      </div>
+
+      <!-- Footer -->
+      <div class="flex items-center border-gray-900 p-2 text-gray-400">
+        <a href="history.html">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+            <path d="M3 3v5h5" />
+            <path d="M12 7v5l4 2" />
+          </svg>
+        </a>
+
+        <div
+          class="absolute left-1/2 flex -translate-x-1/2 transform items-center gap-1"
+        >
+          <a
+            href=""
+            target="_blank"
+            class="hover:text-blue-400"
+            id="source-link"
+            >Source</a
+          >
+          <p>•</p>
+          <a
+            href="https://terravue.app"
+            target="_blank"
+            class="hover:text-blue-400"
+            id="terravue-link"
+            >Terravue</a
+          >
         </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>

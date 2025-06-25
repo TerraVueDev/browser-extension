@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-    --color-high-orange: #ff6B47;
+    --color-high: #ff6B47;
     --color-stat-blue: #3B82F6;
     --color-stat-purple: #8B5CF6;
 }
