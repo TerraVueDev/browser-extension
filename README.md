@@ -23,7 +23,7 @@
 3. Generate TailwindCSS:
 
    ```bash
-   npx @tailwindcss/cli -i ./assets/css/input.css -o ./assets/css/output.css --minify
+   npx @tailwindcss/cli -i ./assets/css/input.css -o ./assets/css/output.css --minify -w
    ```
 
 4. Enable developer mode on Chrome extension tab then click 'Load unpacked' and choose browser-extension directory.
