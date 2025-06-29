@@ -73,6 +73,57 @@ async function displayDomains() {
       }
     }
 
+    // Count impacts across all unique domains
+    let lowCount = 0;
+    let mediumCount = 0;
+    let highCount = 0;
+
+    uniqueDomains.forEach((domainInfo) => {
+      const domainKey = Object.keys(urlData).find(
+        (key) =>
+          key.includes(domainInfo.mainDomain) ||
+          key.includes(domainInfo.originalDomain),
+      );
+
+      let category = domainKey ? urlData[domainKey].categories : "unknown";
+      let impact = ""; // Default impact
+
+      if (category && categoryData[category]) {
+        impact = categoryData[category].impact.toLowerCase();
+      }
+
+      switch (impact) {
+        case "low":
+          lowCount++;
+          break;
+        case "medium":
+          mediumCount++;
+          break;
+        case "high":
+          highCount++;
+          break;
+      }
+    });
+
+    // Display the counts
+    const countContainer = document.getElementById("count");
+    countContainer.innerHTML = `
+      <div class="flex items-center justify-around">
+        <div class="text-center">
+          <div class="text-lg font-bold text-green-500">${lowCount}</div>
+          <div class="text-sm tracking-wide text-gray-600 uppercase">Low</div>
+        </div>
+        <div class="text-center">
+          <div class="text-lg font-bold text-yellow-500">${mediumCount}</div>
+          <div class="text-sm tracking-wide text-gray-600 uppercase">Medium</div>
+        </div>
+        <div class="text-center">
+          <div class="text-lg font-bold text-red-500">${highCount}</div>
+          <div class="text-sm tracking-wide text-gray-600 uppercase">High</div>
+        </div>
+      </div>
+    `;
+
     const container = document.getElementById("apps-list");
     container.innerHTML =
       uniqueDomains.length === 0
@@ -133,7 +184,7 @@ async function displayDomains() {
                       </span>
                   </div>
                   <div class="impact-indicator relative">
-                      <span class="rounded-full border px-3 py-1 text-sm font-medium ${impactClass} cursor-pointer hover:opacity-80">
+                      <span class="rounded-full border px-3 py-1 text-sm font-medium ${impactClass}">
                           ${impactText}
                       </span>
                   </div>
@@ -141,33 +192,9 @@ async function displayDomains() {
             `;
             })
             .join("");
-
-    // Add event listeners for impact details tooltips
-    // document.querySelectorAll(".impact-indicator").forEach((indicator) => {
-    //   indicator.addEventListener("click", (e) => {
-    //     e.stopPropagation();
-    //     const details = indicator.querySelector(".impact-details");
-    //     if (details) {
-    //       // Hide all other open tooltips
-    //       document.querySelectorAll(".impact-details").forEach((d) => {
-    //         if (d !== details) d.classList.add("hidden");
-    //       });
-    //       // Toggle current tooltip
-    //       details.classList.toggle("hidden");
-    //     }
-    //   });
-    // });
-
-    // // Close tooltips when clicking anywhere else
-    // document.addEventListener("click", () => {
-    //   document.querySelectorAll(".impact-details").forEach((d) => {
-    //     d.classList.add("hidden");
-    //   });
-    // });
   } catch (error) {
     console.error("Error displaying domains:", error);
   }
 }
 
-// Call the function to start the process
 displayDomains();
