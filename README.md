@@ -3,7 +3,7 @@
 </div>
 <p align="center">Terravue is an environmental metrics visualizer of web applications and services.</p>
 
----------------------------------------------------------------------------------------------------------------------------
+---
 
 ## Features
 
@@ -12,18 +12,19 @@
 ## Development
 
 1. Clone the repository:
-    ```bash
-    git clone https://github.com/TerraVueDev/browser-extension.git
-    cd browser-extension
-    ```
+   ```bash
+   git clone https://github.com/TerraVueDev/browser-extension.git
+   cd browser-extension
+   ```
 2. Install dependencies:
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 3. Generate TailwindCSS:
-    ```bash
-    npx @tailwindcss/cli -i ./static/css/input.css -o ./static/css/output.css
-    ```
+
+   ```bash
+   npx @tailwindcss/cli -i ./assets/css/input.css -o ./assets/css/output.css --minify
+   ```
 
 4. Enable developer mode on Chrome extension tab then click 'Load unpacked' and choose browser-extension directory.
 
